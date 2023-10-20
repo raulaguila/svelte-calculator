@@ -6,37 +6,39 @@
 
 	let calc = new CalculadoraModel();
 	const numeroDigitado = (num: string) => (calc = calc.numeroDigitado(num));
+	const operacaoDigitada = (op: string) => (calc = calc.operacaoDigitada(op));
 	const pontoDigitado = () => (calc = calc.pontoDigitado());
 	const limpar = () => (calc = calc.limpar());
-	const opracaoDigitada = (op: string) => (calc = calc.operacaoDigitada(op));
 	const calcular = () => (calc = calc.calcular());
+	const inverterSinal = () => (calc = calc.inverterSinal());
+	const porcentagem = () => (calc = calc.porcentagem());
 </script>
 
 <div class="calculadora">
 	<Tela valor={calc.valor} />
 	<Linha>
 		<Botao texto="AC" destaque onClick={limpar} />
-		<Botao texto="+/-" disable />
-		<Botao texto="%" disable />
-		<Botao texto="/" operacao onClick={opracaoDigitada} />
+		<Botao texto="+/-" onClick={inverterSinal}/>
+		<Botao texto="%" disable onClick={porcentagem}/>
+		<Botao texto="/" operacao onClick={operacaoDigitada} />
 	</Linha>
 	<Linha>
 		<Botao texto="7" onClick={numeroDigitado} />
 		<Botao texto="8" onClick={numeroDigitado} />
 		<Botao texto="9" onClick={numeroDigitado} />
-		<Botao texto="*" operacao onClick={opracaoDigitada} />
+		<Botao texto="*" operacao onClick={operacaoDigitada} />
 	</Linha>
 	<Linha>
 		<Botao texto="4" onClick={numeroDigitado} />
 		<Botao texto="5" onClick={numeroDigitado} />
 		<Botao texto="6" onClick={numeroDigitado} />
-		<Botao texto="+" operacao onClick={opracaoDigitada} />
+		<Botao texto="+" operacao onClick={operacaoDigitada} />
 	</Linha>
 	<Linha>
 		<Botao texto="1" onClick={numeroDigitado} />
 		<Botao texto="2" onClick={numeroDigitado} />
 		<Botao texto="3" onClick={numeroDigitado} />
-		<Botao texto="-" operacao onClick={opracaoDigitada} />
+		<Botao texto="-" operacao onClick={operacaoDigitada} />
 	</Linha>
 	<Linha>
 		<Botao texto="0" duplo onClick={numeroDigitado} />

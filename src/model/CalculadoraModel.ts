@@ -77,4 +77,28 @@ export default class CalculadoraModel {
 			proximaOperacao
 		);
 	}
+
+	inverterSinal() {
+		const valor: string | null = !this.#valor ? this.#valor : `${parseFloat(this.#valor) * -1}`;
+
+		return new CalculadoraModel(
+			valor,
+			this.#acumulador,
+			NAO_LIMPAR_TELA,
+			CALCULO_NAO_FEITO,
+			this.#operacao
+		);
+	}
+
+	porcentagem() {
+		console.log('porcentagem');
+
+		return new CalculadoraModel(
+			this.#valor,
+			this.#acumulador,
+			NAO_LIMPAR_TELA,
+			CALCULO_NAO_FEITO,
+			this.#operacao
+		);
+	}
 }
