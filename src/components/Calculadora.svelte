@@ -16,31 +16,31 @@
 
 <div class="calculadora">
 	<Tela valor={calc.valor} />
-	<Linha>
+	<Linha horizontal>
 		<Botao texto="AC" destaque onClick={limpar} />
-		<Botao texto="+/-" onClick={inverterSinal}/>
-		<Botao texto="%" disable onClick={porcentagem}/>
+		<Botao texto="+/-" onClick={inverterSinal} />
+		<Botao texto="%" onClick={porcentagem} />
 		<Botao texto="/" operacao onClick={operacaoDigitada} />
 	</Linha>
-	<Linha>
+	<Linha horizontal>
 		<Botao texto="7" onClick={numeroDigitado} />
 		<Botao texto="8" onClick={numeroDigitado} />
 		<Botao texto="9" onClick={numeroDigitado} />
 		<Botao texto="*" operacao onClick={operacaoDigitada} />
 	</Linha>
-	<Linha>
+	<Linha horizontal>
 		<Botao texto="4" onClick={numeroDigitado} />
 		<Botao texto="5" onClick={numeroDigitado} />
 		<Botao texto="6" onClick={numeroDigitado} />
 		<Botao texto="+" operacao onClick={operacaoDigitada} />
 	</Linha>
-	<Linha>
+	<Linha horizontal>
 		<Botao texto="1" onClick={numeroDigitado} />
 		<Botao texto="2" onClick={numeroDigitado} />
 		<Botao texto="3" onClick={numeroDigitado} />
 		<Botao texto="-" operacao onClick={operacaoDigitada} />
 	</Linha>
-	<Linha>
+	<Linha horizontal>
 		<Botao texto="0" duplo onClick={numeroDigitado} />
 		<Botao texto="," onClick={pontoDigitado} />
 		<Botao texto="=" destaque onClick={calcular} />

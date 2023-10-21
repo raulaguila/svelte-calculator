@@ -43,10 +43,10 @@ export default class CalculadoraModel {
 	}
 
 	pontoDigitado() {
-		let cond: string = !this.#valor ? '0.' : this.#valor + '.';
+		let novoValor: string = !this.#valor ? '0.' : this.#valor + '.';
 
 		return new CalculadoraModel(
-			this.#valor?.includes('.') ? this.#valor : cond,
+			this.#valor?.includes('.') ? this.#valor : novoValor,
 			this.#acumulador,
 			NAO_LIMPAR_TELA,
 			CALCULO_NAO_FEITO,
@@ -63,9 +63,11 @@ export default class CalculadoraModel {
 	}
 
 	calcular(proximaOperacao: string | null = null) {
+		const aux = this.#acumulador ? this.#acumulador : 0;
+		
 		const acumulador = !this.#operacao
 			? parseFloat(this.#valor!)
-			: eval(`${this.#acumulador} ${this.#operacao} ${this.#valor}`);
+			: eval(`${aux} ${this.#operacao} ${this.#valor}`);
 
 		const valor = !this.#operacao ? this.#valor : `${acumulador}`;
 
@@ -91,10 +93,14 @@ export default class CalculadoraModel {
 	}
 
 	porcentagem() {
-		console.log('porcentagem');
+		let novoValor = !this.#acumulador
+			? `${parseFloat(this.#valor!) / 100}`
+			: `${(parseFloat(this.#valor!) / 100) * this.#acumulador}`;
+
+		let valor: string | null = !this.#valor ? this.#valor : novoValor;
 
 		return new CalculadoraModel(
-			this.#valor,
+			valor,
 			this.#acumulador,
 			NAO_LIMPAR_TELA,
 			CALCULO_NAO_FEITO,
